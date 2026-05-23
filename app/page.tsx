@@ -94,41 +94,91 @@ export default function Home() {
           <div className="mt-12 rounded-xl border border-zinc-800 bg-zinc-900 p-8">
             <div className="font-mono text-sm text-zinc-300">
               <p className="text-zinc-500">
-                # Scan any MCP server in one command
+                # Local CLI — scan any MCP server in one command
               </p>
               <p className="mt-1">
                 <span className="text-emerald-400">$</span> npx compuute-scan
                 ./your-mcp-server
               </p>
               <div className="mt-4 border-t border-zinc-800 pt-4">
-                <p className="text-zinc-500"># Docker-isolated scanning</p>
+                <p className="text-zinc-500">
+                  # Hosted API — POST a GitHub URL, get a report back
+                </p>
                 <p className="mt-1">
-                  <span className="text-emerald-400">$</span> ./scan.sh clone
-                  https://github.com/org/server.git
+                  <span className="text-emerald-400">$</span> curl -X POST
+                  https://scan.compuute.se/v1/scan \
                 </p>
                 <p>
-                  <span className="text-emerald-400">$</span> ./scan.sh run
-                  server --output audit.md
+                  <span className="text-emerald-400"> </span>{" "}
+                  -d &apos;&#123;&quot;repo_url&quot;:&quot;https://github.com/org/server&quot;&#125;&apos;
                 </p>
               </div>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <Stat label="Rules" value="28" />
-              <Stat label="VIGIL Layers" value="5" />
+              <Stat label="Rules" value="37" />
+              <Stat label="Languages" value="8" />
               <Stat label="Dependencies" value="0" />
-              <Stat label="Output Formats" value="3" />
+              <Stat label="Layers" value="L0–L4" />
             </div>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="https://scan.compuute.se"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-emerald-500 px-6 py-2.5 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400"
+              >
+                Try the hosted API →
+              </a>
               <a
                 href="https://github.com/Compuute/compuute-scan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border border-zinc-700 px-6 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800"
               >
-                View on GitHub →
+                Scanner on GitHub
               </a>
+              <a
+                href="https://github.com/Compuute/compuute-scan-api"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-zinc-700 px-6 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800"
+              >
+                API on GitHub
+              </a>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800 pt-6">
+              <p className="text-center text-xs uppercase tracking-widest text-zinc-500">
+                Listed on
+              </p>
+              <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-zinc-400">
+                <a
+                  href="https://registry.modelcontextprotocol.io/v0/servers?search=compuute-scan-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-emerald-400"
+                >
+                  Anthropic MCP Registry
+                </a>
+                <a
+                  href="https://smithery.ai/servers/daniel-abbay/compuute-scan-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-emerald-400"
+                >
+                  Smithery
+                </a>
+                <a
+                  href="https://mcp.so/server/compuute-scan-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-emerald-400"
+                >
+                  mcp.so
+                </a>
+              </div>
             </div>
           </div>
         </div>
